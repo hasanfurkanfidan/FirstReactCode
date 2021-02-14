@@ -7,11 +7,9 @@ class CategoryList extends Component {
             categories: [
                 { name: "elektronik", id: 1 }, { name: "giyim", id: 2 }
             ],
-            currentCategory : ""
+          
         }
-    changeCategory =(newCategory)=>{
-      this.setState({currentCategory:newCategory})
-    }
+    
     render() {
         return (
             <div>
@@ -21,11 +19,11 @@ class CategoryList extends Component {
                 <ListGroup>
                     {
                         this.state.categories.map(category=>(
-                            <ListGroupItem onClick={()=>this.changeCategory(category.name)} key={category.id}>{category.name}</ListGroupItem>
+                            <ListGroupItem onClick={()=>this.props.changeCategory(category.name)} key={category.id}>{category.name}</ListGroupItem>
                         ))
                     }
                   
-                   <h4>{this.state.currentCategory}</h4>
+                   <h4>{this.props.currentCategory}</h4>
                 </ListGroup>
             </div>
         );
