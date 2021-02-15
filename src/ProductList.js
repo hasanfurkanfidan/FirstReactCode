@@ -4,12 +4,9 @@ class ProductList extends Component {
     state = {
 
     }
-     addToCart=product=>{
-         alert(product.productName)
-     }
+    
  
     render() {
-        console.log(this.props.products)
         return (
             <Table>
                 <thead>
@@ -31,7 +28,7 @@ class ProductList extends Component {
                                 <td>{product.unitPrice}</td>
                                 <td>{product.categoryId}</td>
                                 <td>{product.unitsInStock}</td>
-                                <td><Button onClick={()=>this.addToCart(product)}>Sepete Ekle</Button></td>
+                                <td><Button onClick={()=>this.props.addToCart(product)}>Sepete Ekle</Button></td>
                             </tr>
 
                         ))

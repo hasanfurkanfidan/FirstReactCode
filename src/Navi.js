@@ -1,63 +1,51 @@
 import { render } from '@testing-library/react';
 import React, { Component, useState } from 'react';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
+    NavbarText
 } from 'reactstrap';
-export default class Navi extends Component{
+import CartSummary from './CartSummary';
+export default class Navi extends Component {
     state = {
-        isOpen : false
+        isOpen: false,
     }
-    toggle = () =>{ 
-    this.setState({isOpen:!this.state.isOpen})
+    toggle = () => {
+        this.setState({ isOpen: !this.state.isOpen })
     };
-    
 
-      render(){ return( <div>          
-       
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={()=>this.toggle} />
-          <Collapse isOpen={this.stateisOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-            <NavbarText>Simple Text</NavbarText>
-          </Collapse>
-        </Navbar>
-      </div>
-      )
-  }}
+
+
+    render() {
+        return (<div>
+
+            <Navbar color="light" light expand="md">
+                <NavbarBrand href="/">E-Ticaret Uygulaması</NavbarBrand>
+                <NavbarToggler onClick={() => this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="mr-auto" navbar>
+                        <NavItem>
+                            <NavLink href="/components/">Components</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                        </NavItem>                    
+                            <CartSummary removeFromCart = {this.props.removeFromCart} cart={this.props.cart}></CartSummary>                      
+                    </Nav>
+                    <NavbarText>Alışverişin en karlı hali</NavbarText>
+                </Collapse>
+            </Navbar>
+        </div>
+        )
+    }
+}
 
