@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
     Collapse,
     Navbar,
@@ -16,7 +17,7 @@ import {
 } from 'reactstrap';
 class CartSummary extends Component {
     renderControl() {
-       return (<UncontrolledDropdown nav inNavbar>
+        return (<UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
                 Sepetiniz-{this.props.cart.length}
             </DropdownToggle>
@@ -33,21 +34,23 @@ class CartSummary extends Component {
 
 
                 )}
-
-
+                <DropdownItem divider></DropdownItem>
+                <DropdownItem>
+                    <Link to="sepet">Sepete Git</Link>
+                </DropdownItem>
             </DropdownMenu>
         </UncontrolledDropdown>)
     }
-    renderEmptyCart(){
-        return(
+    renderEmptyCart() {
+        return (
             <NavItem>
                 <NavLink>Sepetiniz boş</NavLink>
             </NavItem>
         )
     }
     render() {
-        return(
-            this.props.cart.length > 0 ? this.renderControl() : this.renderEmptyCart())                
+        return (
+            this.props.cart.length > 0 ? this.renderControl() : this.renderEmptyCart())
     }
 }
 

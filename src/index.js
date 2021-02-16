@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/alertifyjs/build/css/alertify.min.css'
+import '../node_modules/alertifyjs/build/css/alertify.min.css';
+import {BrowserRouter} from 'react-router-dom';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter><App></App></BrowserRouter>,
   document.getElementById('root')
 );
 
